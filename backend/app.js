@@ -8,6 +8,7 @@ const connectToDb= require('./db/db')
 const userRoutes = require('./routes/user.routes')
 const captainRoutes = require('./routes/captain.routes')
 connectToDb()
+
 app.use(cors())
 app.use(express.json())
 app.use(cookieParser())
@@ -16,6 +17,12 @@ app.use('/users',userRoutes)
 
 app.use('/captains',captainRoutes)
 
+// app.all('*', (req, res) => {
+//     res.status(404).json({
+//         success: false,
+//         message: 'Route not found',
+//     });
+// });
 
 
 module.exports=app
